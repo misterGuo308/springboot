@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 public class TestController {
     @Resource
     private TestService testService;
-       System.out.println("2");
+
     @GetMapping(name = "/get")
     public  String get(){
         System.out.println("1");
