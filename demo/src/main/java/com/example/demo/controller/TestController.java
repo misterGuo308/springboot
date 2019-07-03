@@ -12,7 +12,7 @@ public class TestController {
     private TestService testService;
     @GetMapping(name = "/get")
     public  String get(){
-
+        System.out.println(11);
         return testService.get();
 
     }
