@@ -12,6 +12,11 @@ public class TestController {
     private TestService testService;
     @GetMapping(name = "/get")
     public  String get(){
+        int i = 1;
+        String s = new String();
+        if(i>10){
+            System.out.println("1234");
+        }
         return testService.get();
 
     }
