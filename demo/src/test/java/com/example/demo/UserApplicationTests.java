@@ -20,7 +20,7 @@ public class UserApplicationTests {
     @Test
     public void insert() {
         UserInfo userInfo = new UserInfo();
-        userInfo.setName("张小虎");
+        userInfo.setName("张小虎红");
         userInfo.setPassword("123456");
         int i = userInfoService.insert(userInfo);
         System.out.println("新增成功" + i + "条");
