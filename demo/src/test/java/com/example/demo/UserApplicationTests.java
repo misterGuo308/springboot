@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -27,7 +28,7 @@ public class UserApplicationTests {
     }
 
     @Test
-    public  void findUserInfoById() {
+    public  void findUserInfoById() throws IOException {
 
         int id =1;
         UserInfo userInfo = userInfoService.findUserInfoById(id);
