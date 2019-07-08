@@ -25,7 +25,7 @@ public class TestController {
         if (i > 10) {
             System.out.println("1234");
         }
-        logger.info("测试日志");
+        logger.info("测试日志211");
         return testService.get();
 
     }
