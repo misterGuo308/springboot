@@ -12,14 +12,14 @@ import java.util.concurrent.Executor;
 //@EnableAsync
 public class AsyucConfig {
     @Value("${asyucConfig.corePoolSize}")
-    private int corePoolSize ;
+    private int corePoolSize;
     @Value("${asyucConfig.maxPoolSize}")
-    private  int maxPoolSize ;
+    private int maxPoolSize;
     @Value("${asyucConfig.queueCapacity}")
-    private  int queueCapacity;
+    private int queueCapacity;
 
     @Bean
-    public Executor testExecutor(){
+    public Executor testExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(corePoolSize);
         executor.setMaxPoolSize(maxPoolSize);

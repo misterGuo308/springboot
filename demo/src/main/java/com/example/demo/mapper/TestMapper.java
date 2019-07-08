@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 @Mapper
 public interface TestMapper {
-    
+
     @Select(" select name from test limit 1 ")
     String get();
 }

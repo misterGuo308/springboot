@@ -11,6 +11,7 @@ public class TestServiceImpl implements TestService {
 
     @Resource
     private TestMapper testMapper;
+
     @Override
     public String get() {
         return testMapper.get();

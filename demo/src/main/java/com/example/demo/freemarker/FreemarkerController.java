@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FreemarkerController {
 
     @GetMapping(value = "/freemarker.do")
-    public  String freemarkerShow(){
-       return "fm";
+    public String freemarkerShow() {
+        return "fm";
     }
-
 
 
 }

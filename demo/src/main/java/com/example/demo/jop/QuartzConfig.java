@@ -8,12 +8,12 @@ import org.springframework.context.annotation.Configuration;
 public class QuartzConfig {
 
     @Bean
-    public JobDetail testJobDetail(){
+    public JobDetail testJobDetail() {
         return JobBuilder.newJob(TestQuartz.class).withIdentity("testQuartz").storeDurably().build();
     }
 
     @Bean
-    public Trigger testQuartzTrigger(){
+    public Trigger testQuartzTrigger() {
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule()
                 .withIntervalInSeconds(2) //设置定时时间
                 .repeatForever();

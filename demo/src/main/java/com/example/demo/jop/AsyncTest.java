@@ -15,14 +15,14 @@ public class AsyncTest {
      */
 
 
-   // @Scheduled(cron = "0/2 * * * * *")
+    // @Scheduled(cron = "0/2 * * * * *")
     public void scheduledTest() {
         System.out.println("scheduled中cron定时任务:" + new Date());
     }
 
     @Scheduled(fixedRate = 2000)
     public void scheduledTest2() throws Exception {
-          Thread.sleep(10000);
+        Thread.sleep(10000);
         System.out.println("scheduled中fixeRate定时任务" + new Date());
 
     }

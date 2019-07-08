@@ -25,7 +25,7 @@ public class TransationAdviceConfig {
 
     @Bean
     public TransactionInterceptor txAdvice() {
-         //创建默认的事务属性
+        //创建默认的事务属性
         DefaultTransactionAttribute txAttr_REQUIRED = new DefaultTransactionAttribute();
         //设置事务的传播行为 PROPAGATION_REQUIRED支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择。
         txAttr_REQUIRED.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);

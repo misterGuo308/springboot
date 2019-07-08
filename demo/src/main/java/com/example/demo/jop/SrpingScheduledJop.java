@@ -16,18 +16,19 @@ public class SrpingScheduledJop {
      */
 
     @Scheduled(cron = "0/2 * * * * *")
-    public void scheduledTest(){
-        System.out.println("scheduled中cron定时任务:"+new Date());
+    public void scheduledTest() {
+        System.out.println("scheduled中cron定时任务:" + new Date());
     }
 
-    @Scheduled(fixedRate =2000)
+    @Scheduled(fixedRate = 2000)
     public void scheduledTest2() throws Exception {
-      //  Thread.sleep(10000);
-        System.out.println("scheduled中fixeRate定时任务"+new Date());
+        //  Thread.sleep(10000);
+        System.out.println("scheduled中fixeRate定时任务" + new Date());
 
     }
+
     @Scheduled(fixedDelay = 2000)
-    public  void  scheduledTest3(){
-        System.out.println("scheduled中fixedDelay定时任务"+new Date());
+    public void scheduledTest3() {
+        System.out.println("scheduled中fixedDelay定时任务" + new Date());
     }
 }

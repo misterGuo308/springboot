@@ -1,12 +1,11 @@
 package com.example.demo.model;
 
 
-
 public class UserInfo {
 
 
     private Integer id;
-    private  String name;
+    private String name;
     private String password;
 
     public Integer getId() {

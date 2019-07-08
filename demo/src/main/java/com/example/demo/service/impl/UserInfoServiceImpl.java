@@ -38,17 +38,17 @@ public class UserInfoServiceImpl implements UserInfoService {
     public UserInfo findUserInfoById(Integer id) throws IOException {
         Object object = redisTemplate.opsForValue().get("userInfo" + id);
 
-        if (object != null||object.toString().equals("null")) {
+        if (object != null || object.toString().equals("null")) {
             logger.info("进入redis");
             return objectMapper.readValue(object.toString(), UserInfo.class);
         }
 
         UserInfo userInfo = userInfoMapper.findUserInfoById(id);
         String userInfoJson = "null";
-        String userKey ="userInfo"+id;
+        String userKey = "userInfo" + id;
         if (userInfo != null) {
             userInfoJson = objectMapper.writeValueAsString(userInfo);
-            userKey =userKey+userInfo.getId();
+            userKey = userKey + userInfo.getId();
         }
         redisTemplate.opsForValue().set(userKey, userInfoJson);
         return userInfo;

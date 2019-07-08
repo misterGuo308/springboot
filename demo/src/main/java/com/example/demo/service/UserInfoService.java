@@ -7,8 +7,8 @@ import java.io.IOException;
 public interface UserInfoService {
 
 
-
     int insert(UserInfo userInfo);
+
     UserInfo findUserInfoById(Integer id) throws IOException;
 
     int update(UserInfo userInfo);
