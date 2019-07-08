@@ -28,29 +28,29 @@ public class UserApplicationTests {
     }
 
     @Test
-    public  void findUserInfoById() throws IOException {
+    public void findUserInfoById() throws IOException {
 
-        int id =1;
+        int id = 1;
         UserInfo userInfo = userInfoService.findUserInfoById(id);
-        System.out.println("用户信息为"+userInfo);
+        System.out.println("用户信息为" + userInfo);
     }
 
     @Test
-    public void update(){
+    public void update() {
         UserInfo userInfo = new UserInfo();
 
         userInfo.setId(1);
         userInfo.setName("张强");
         userInfo.setPassword("23455");
         int i = userInfoService.update(userInfo);
-        System.out.println("修改行位"+i);
+        System.out.println("修改行位" + i);
     }
 
 
     @Test
-    public  void  delete(){
-        int id =1;
+    public void delete() {
+        int id = 1;
         int i = userInfoService.delete(id);
-        System.out.println("删除数据为"+i+"条");
+        System.out.println("删除数据为" + i + "条");
     }
 }

@@ -9,9 +9,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class DemoApplicationTests {
 
-	@Test
-	public void contextLoads() {
-		System.out.println("测试类");
-	}
+    @Test
+    public void contextLoads() {
+        System.out.println("测试类");
+    }
 
 }
