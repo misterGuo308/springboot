@@ -22,7 +22,7 @@ import static com.alibaba.druid.sql.visitor.SQLEvalVisitorUtils.eq;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author guoyou
@@ -37,21 +37,26 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     @Override
     public String login(UserInfo userInfo, HttpServletRequest request) throws JsonProcessingException {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.eq("account",userInfo.getAccount());
-        wrapper.eq("password",userInfo.getPassword());
+        wrapper.eq("account", userInfo.getAccount());
+        wrapper.eq("password", userInfo.getPassword());
         UserInfo user = baseMapper.selectOne(wrapper);
-        if(user==null) return RetJson.makeRsp(RetCode.FAIL,"用户名或密码不正确");
-        String  sessionId = (String) redisTemplate.opsForValue().get(userInfo.getAccount());
-        HttpSession session = MySessionContent.getSession(sessionId);
-        if(sessionId!=null&&session!=null){
-            session.invalidate();
-            MySessionContent.delSession(sessionId);
+        if (user == null) return RetJson.makeRsp(RetCode.FAIL, "用户名或密码不正确");
+        String sessionId = (String) redisTemplate.opsForValue().get(userInfo.getAccount());
+        if (sessionId != null) {
+            redisTemplate.opsForValue().set(sessionId,SysConstants.AUTO);
             redisTemplate.delete(userInfo.getAccount());
         }
         //将用户信息实例化Session中
-        HttpSession currentSession = request.getSession();
-        currentSession.setAttribute(SysConstants.USER_INFO,userInfo);
-        redisTemplate.opsForValue().set(userInfo.getAccount(),currentSession.getId());
+        HttpSession session = request.getSession();
+        session.setAttribute(SysConstants.USER_INFO, userInfo);
+        redisTemplate.opsForValue().set(userInfo.getAccount(), session.getId());
+        return RetJson.makeOKRsp();
+    }
+
+    @Override
+    public String logout(HttpServletRequest request) throws JsonProcessingException {
+
+        request.getSession().removeAttribute(SysConstants.USER_INFO);
         return RetJson.makeOKRsp();
     }
 }

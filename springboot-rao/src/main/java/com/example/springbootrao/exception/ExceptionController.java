@@ -25,9 +25,10 @@ public class ExceptionController {
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public String  defaultErrorHandler(Exception e) throws JsonProcessingException {
-    logger.error(e.getMessage());
-   return  RetJson.makeErrRsp();
+    public String defaultErrorHandler(Exception e) throws JsonProcessingException {
+        e.printStackTrace();
+        logger.error(e.getMessage());
+        return RetJson.makeErrRsp();
     }
 
 

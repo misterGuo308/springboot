@@ -12,7 +12,6 @@ import org.springframework.session.data.redis.config.annotation.web.http.EnableR
 //@EnableScheduling//开始定时任务
 @ServletComponentScan//扫描监听拦截器等(@WebServlet, @WebFilter, and @WebListener)
 @EnableRedisHttpSession(redisNamespace = "mySession2")
-@SuppressWarnings("unchecked")
 public class SpringbootRaoApplication {
 
     public static void main(String[] args) {

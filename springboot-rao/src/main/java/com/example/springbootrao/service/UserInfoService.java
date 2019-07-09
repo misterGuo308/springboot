@@ -17,4 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 public interface UserInfoService extends IService<UserInfo> {
 
     String login(UserInfo userInfo, HttpServletRequest request) throws JsonProcessingException;
+
+    String logout(HttpServletRequest request) throws JsonProcessingException;
 }

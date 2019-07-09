@@ -2,6 +2,7 @@ package com.example.springbootrao.controller;
 
 
 import com.alibaba.druid.util.StringUtils;
+import com.example.springbootrao.common.constant.SysConstants;
 import com.example.springbootrao.common.ret.RetCode;
 import com.example.springbootrao.common.ret.RetJson;
 import com.example.springbootrao.common.model.UserInfo;
@@ -50,8 +51,8 @@ public class UserInfoController {
 
     @GetMapping(value = "/logout")
     public String logout(HttpServletRequest request) throws JsonProcessingException {
-        request.getSession().invalidate();
-        return RetJson.makeOKRsp();
+
+        return userInfoService.logout(request);
     }
 
 

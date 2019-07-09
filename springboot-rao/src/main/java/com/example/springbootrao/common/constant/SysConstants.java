@@ -7,4 +7,5 @@ package com.example.springbootrao.common.constant;
 public class SysConstants {
 
     public static  final String USER_INFO ="USER_INFO_SESSION_NAME";//定义session中保存的用户名称
+    public static final String AUTO = "AUTO" ;//实效
 }
