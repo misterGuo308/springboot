@@ -1,7 +1,7 @@
 package com.example.springbootrao.service;
 
-import com.example.springbootrao.model.SysLog;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.springbootrao.common.model.SysLog;
 
 /**
  * <p>

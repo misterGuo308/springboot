@@ -1,16 +1,15 @@
-package com.example.springbootrao.jop;
+package com.example.springbootrao.common.jop;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-@Async
-@Component
+//@Async
+//@Component
 public class AsyncTask {
 
 
@@ -22,6 +21,5 @@ public class AsyncTask {
     @Scheduled(cron = "0/2 * * * * *")
     public void scheduledTask(){
         logger.info("定时任务"+new Date());
-        System.out.println("定时任务"+new Date());
     }
 }

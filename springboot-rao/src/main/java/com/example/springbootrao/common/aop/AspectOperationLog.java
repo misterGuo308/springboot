@@ -1,20 +1,21 @@
 package com.example.springbootrao.common.aop;
 
 import com.example.springbootrao.common.constant.SysConstants;
-import com.example.springbootrao.model.SysLog;
-import com.example.springbootrao.model.UserInfo;
+import com.example.springbootrao.common.model.SysLog;
+import com.example.springbootrao.common.model.UserInfo;
 import com.example.springbootrao.service.SysLogService;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Method;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import com.example.springbootrao.common.annotation.AspectLog;
@@ -50,7 +51,7 @@ public class AspectOperationLog {
         String ip = request.getRemoteAddr();
         UserInfo userInfo = (UserInfo) session.getAttribute(SysConstants.USER_INFO);
         SysLog sysLog = new SysLog();
-        sysLog.setDateTime(new Date());
+        sysLog.setDateTime(LocalDateTime.now());
         sysLog.setOperation(operation);
         sysLog.setMethodName(method.getName());
         sysLog.setUserId(userInfo.getId());
@@ -64,7 +65,7 @@ public class AspectOperationLog {
             sysLog.setComment("操作失败");
             throw new Throwable();
         } finally {
-            sysLogService.insert(sysLog);
+            sysLogService.save(sysLog);
         }
         return result;
     }

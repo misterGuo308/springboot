@@ -1,7 +1,10 @@
 package com.example.springbootrao.service;
 
-import com.example.springbootrao.model.UserInfo;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.springbootrao.common.model.UserInfo;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface UserInfoService extends IService<UserInfo> {
 
+    String login(UserInfo userInfo, HttpServletRequest request) throws JsonProcessingException;
 }

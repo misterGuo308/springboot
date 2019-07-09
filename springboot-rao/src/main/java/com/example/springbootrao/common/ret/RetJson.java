@@ -23,15 +23,16 @@ public class RetJson {
         return  objectMapper.writeValueAsString(new RetResult<T>().setCode(RetCode.SUCCESS).setMsg(SUCCESS).setData(data));
     }
 
-    public static <T> String makeErrRsp(String message) throws JsonProcessingException {
+    public static <T> String makeErrRsp() throws JsonProcessingException {
+
         return objectMapper.writeValueAsString(new RetResult<T>().setCode(RetCode.FAIL).setMsg(FAIL));
     }
 
-    public static <T> String makeRsp(int code, String msg) throws JsonProcessingException {
+    public static <T> String makeRsp(RetCode code, String msg) throws JsonProcessingException {
         return objectMapper.writeValueAsString(new RetResult<T>().setCode(code).setMsg(msg));
     }
 
-    public static <T> String makeRsp(int code, String msg, T data) throws JsonProcessingException {
+    public static <T> String makeRsp(RetCode code, String msg, T data) throws JsonProcessingException {
         return objectMapper.writeValueAsString(new RetResult<T>().setCode(code).setMsg(msg).setData(data)) ;
     }
 

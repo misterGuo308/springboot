@@ -1,4 +1,4 @@
-package com.example.springbootrao.jop;
+package com.example.springbootrao.common.jop;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

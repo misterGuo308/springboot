@@ -14,19 +14,19 @@ public class MySessionContent {
 
     }
 
-    public static synchronized  void  delSession(HttpSession session){
+    public static synchronized  void  delSession(String sessionId){
 
-        if(session!=null){
-            map.remove(session);
+        if(sessionId!=null){
+            map.remove(sessionId);
         }
 
     }
 
-    public static synchronized HttpSession getSession(HttpSession session){
+    public static synchronized HttpSession getSession(String sessionId){
 
-        if(session==null)
+        if(sessionId==null)
             return null;
-        return (HttpSession) map.get(session.getId());
+        return (HttpSession) map.get(sessionId);
 
     }
 }

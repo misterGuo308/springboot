@@ -1,7 +1,7 @@
 package com.example.springbootrao.mapper;
 
-import com.example.springbootrao.model.UserInfo;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.example.springbootrao.common.model.UserInfo;
 
 /**
  * <p>

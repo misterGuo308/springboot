@@ -14,7 +14,7 @@ public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         System.out.println("销毁的session:"+se.getSession().getId());
-        MySessionContent.delSession(se.getSession());
+        MySessionContent.delSession(se.getSession().getId());
 
     }
 

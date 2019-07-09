@@ -1,9 +1,9 @@
 package com.example.springbootrao.service.impl;
 
-import com.example.springbootrao.model.SysLog;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.springbootrao.common.model.SysLog;
 import com.example.springbootrao.mapper.SysLogMapper;
 import com.example.springbootrao.service.SysLogService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
