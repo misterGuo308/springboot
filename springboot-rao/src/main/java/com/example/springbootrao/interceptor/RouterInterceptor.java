@@ -13,8 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class RouterInterceptor implements WebMvcConfigurer {
     @Bean
     public ExecuteInterceptor getExecuteInterceptor() {
-        return  new ExecuteInterceptor();
+        return new ExecuteInterceptor();
     }
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 

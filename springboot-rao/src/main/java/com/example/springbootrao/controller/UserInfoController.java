@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author guoyou
@@ -32,6 +32,7 @@ public class UserInfoController {
 
     @Resource
     private UserInfoService userInfoService;
+
     @GetMapping(value = "/get")
     public String getTest() throws JsonProcessingException {
         return RetJson.makeOKRsp(userInfoService.getById(2));
@@ -40,13 +41,13 @@ public class UserInfoController {
 
 
     @GetMapping(value = "/login")
-    public String login(@RequestParam(name = "account") String account , @RequestParam("password") String password , HttpServletRequest request) throws JsonProcessingException {
-         if(StringUtils.isEmpty(account)||StringUtils.isEmpty(password))
-          return  RetJson.makeRsp(RetCode.FAIL,"用户名或密码不能为空");
+    public String login(@RequestParam(name = "account") String account, @RequestParam("password") String password, HttpServletRequest request) throws JsonProcessingException {
+        if (StringUtils.isEmpty(account) || StringUtils.isEmpty(password))
+            return RetJson.makeRsp(RetCode.FAIL, "用户名或密码不能为空");
         UserInfo userInfo = new UserInfo();
         userInfo.setAccount(account);
         userInfo.setPassword(password);
-        return userInfoService.login(userInfo,request);
+        return userInfoService.login(userInfo, request);
     }
 
     @GetMapping(value = "/logout")

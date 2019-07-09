@@ -16,7 +16,7 @@ import javax.annotation.Resource;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author guoyou
@@ -30,14 +30,12 @@ public class SysLogController {
     private SysLogService sysLogService;
 
     @GetMapping("/selectPage")
-    public String selectPage(@RequestParam("size")Integer size,@RequestParam("current")Integer current) throws JsonProcessingException {
+    public String selectPage(@RequestParam("size") Integer size, @RequestParam("current") Integer current) throws JsonProcessingException {
         Page<SysLog> sysLogPage = new Page<>();
-         sysLogPage.setSize(size);
-         sysLogPage.setCurrent(current);
-        return RetJson.makeOKRsp(sysLogService.page(sysLogPage,null));
+        sysLogPage.setSize(size);
+        sysLogPage.setCurrent(current);
+        return RetJson.makeOKRsp(sysLogService.page(sysLogPage, null));
     }
-
-
 
 
 }

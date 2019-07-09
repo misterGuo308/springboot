@@ -60,13 +60,14 @@ public class TransationAdviceConfig {
 
 
     }
+
     @Bean
-    public Advisor txAdviceAdvisor(){
+    public Advisor txAdviceAdvisor() {
         //aspecctj的节点表达式
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
         pointcut.setExpression(AOP_POINTCUT_EXPRESSION);
         //返回通知器
-        return  new DefaultPointcutAdvisor(pointcut,txAdvice());
+        return new DefaultPointcutAdvisor(pointcut, txAdvice());
 
 
     }

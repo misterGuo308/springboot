@@ -21,7 +21,7 @@ public class AsyncConfig {
     private int queueCapacity;
 
     @Bean
-    public Executor asyncExecutor(){
+    public Executor asyncExecutor() {
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
 

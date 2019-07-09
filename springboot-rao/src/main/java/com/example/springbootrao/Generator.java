@@ -1,6 +1,8 @@
 package com.example.springbootrao;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
@@ -42,8 +44,8 @@ public class Generator {
         gc.setFileOverride(true);
         gc.setActiveRecord(true);
         gc.setEnableCache(false);// XML 二级缓存
-       // gc.setBaseResultMap(true);// XML ResultMap
-     //   gc.setBaseColumnList(true);// XML columList
+        // gc.setBaseResultMap(true);// XML ResultMap
+        //   gc.setBaseColumnList(true);// XML columList
         mpg.setGlobalConfig(gc);
 
         // 数据源配置
@@ -57,7 +59,7 @@ public class Generator {
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-       // pc.setModuleName("demo");
+        // pc.setModuleName("demo");
         pc.setParent("com");
         pc.setEntity("common.model");
         pc.setService("service");
@@ -68,7 +70,8 @@ public class Generator {
         // 自定义配置
         InjectionConfig cfg = new InjectionConfig() {
             @Override
-            public void initMap() {}
+            public void initMap() {
+            }
         };
 
         // 如果模板引擎是 freemarker
@@ -101,7 +104,7 @@ public class Generator {
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
-        strategy.setInclude("user_info","sys_log");
+        strategy.setInclude("user_info", "sys_log");
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setTablePrefix("t_");
         mpg.setStrategy(strategy);

@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface AspectLog {
 
-//记录系统操作日志
-String operation();
+    //记录系统操作日志
+    String operation();
 }
