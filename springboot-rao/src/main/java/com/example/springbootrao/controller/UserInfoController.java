@@ -44,7 +44,7 @@ public class UserInfoController {
           return  RetJson.makeRsp(RetCode.FAIL,"用户名或密码不能为空");
         UserInfo userInfo = new UserInfo();
         userInfo.setAccount(account);
-        userInfo.setName(password);
+        userInfo.setPassword(password);
         return userInfoService.login(userInfo,request);
     }
 
