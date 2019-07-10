@@ -31,8 +31,6 @@ public class UserInfoController {
     @Resource
     private UserInfoService userInfoService;
 
-    @Resource
-    private IService<UserInfo> iService;
 
     @GetMapping(value = "/get")
     @AspectLog(operation = "查询用户信息")
@@ -63,28 +61,5 @@ public class UserInfoController {
         return userInfoService.register(userInfo);
     }
 
-    @PostMapping(value = "/transationTest")
-    public String transationTest(){
-        return userInfoService.insetTransationTest();
-    }
-    @PostMapping(value = "/transationMybitsPlusTest")
-    public String transationMybitsPlusTest(){
-
-        ArrayList<UserInfo> userInfos = new ArrayList<>();
-        UserInfo userInfo = new UserInfo();
-        userInfo.setId(100);
-        userInfo.setPassword("1234");
-        userInfo.setName("测试");
-        userInfo.setAccount("abc");
-       userInfos.add(userInfo);
-        UserInfo userInfo2 = new UserInfo();
-        userInfo2.setId(100);
-        userInfo2.setPassword("12342");
-        userInfo2.setName("测试2");
-       // userInfo2.setAccount("abc2");
-        userInfos.add(userInfo2);
-        userInfoService.saveBatch(userInfos,2);
-        return "测试";
-    }
 }
 
