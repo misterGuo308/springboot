@@ -1,5 +1,4 @@
-package com.example.springbootrao.common.aop;
-
+package com.example.springbootrao.configuration.aop;
 import com.example.springbootrao.common.constant.SysConstants;
 import com.example.springbootrao.common.model.SysLog;
 import com.example.springbootrao.common.model.UserInfo;
@@ -9,14 +8,11 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.Method;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import com.example.springbootrao.common.annotation.AspectLog;
 import org.springframework.web.context.request.RequestContextHolder;

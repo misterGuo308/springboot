@@ -14,7 +14,7 @@ public class RetResult<T> {
     private T data;
 
     public RetResult<T> setCode(RetCode retCode) {
-        this.code = retCode.code;
+        this.code = retCode.getCode();
         return this;
     }
 
@@ -22,13 +22,18 @@ public class RetResult<T> {
         return code;
     }
 
-    public RetResult<T> setCode(int code) {
+  /*  public RetResult<T> setCode(int code) {
         this.code = code;
         return this;
-    }
+    }*/
 
     public String getMsg() {
         return msg;
+    }
+
+    public RetResult<T> setMsg(RetMessage msg) {
+        this.msg = msg.getMsg();
+        return this;
     }
 
     public RetResult<T> setMsg(String msg) {

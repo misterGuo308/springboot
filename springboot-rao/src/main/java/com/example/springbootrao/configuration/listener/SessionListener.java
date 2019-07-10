@@ -1,15 +1,10 @@
-package com.example.springbootrao.listener;
+package com.example.springbootrao.configuration.listener;
 
-import org.springframework.stereotype.Component;
-
-import javax.servlet.ServletRequestListener;
-import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
-@WebListener
-@Component
+/*@WebListener  将该注解打开就可以使用session监听器了
+@Component*/
 public class SessionListener implements HttpSessionListener {
     @Override
     public void sessionCreated(HttpSessionEvent se) {

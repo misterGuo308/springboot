@@ -1,4 +1,4 @@
-package com.example.springbootrao.exception;
+package com.example.springbootrao.configuration.exception;
 
 import com.example.springbootrao.common.ret.RetJson;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -7,11 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 
 /**
@@ -26,6 +21,11 @@ public class ExceptionController {
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public String defaultErrorHandler(Exception e) throws JsonProcessingException {
+        if (e instanceof ServerException) {
+            String jsonMsg = RetJson.makeRsp(((ServerException) e).getCode(), ((ServerException) e).getMsg());
+            logger.info("系统自定义的信息为:"+jsonMsg);
+            return jsonMsg;
+        }
         e.printStackTrace();
         logger.error(e.getMessage());
         return RetJson.makeErrRsp();

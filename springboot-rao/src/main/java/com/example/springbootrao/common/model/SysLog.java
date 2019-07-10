@@ -50,6 +50,7 @@ public class SysLog extends Model<SysLog> {
     /**
      * 请求方法名
      */
+    @TableField("method_name")
     private String methodName;
 
     /**

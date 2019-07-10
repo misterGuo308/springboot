@@ -5,6 +5,7 @@ import com.example.springbootrao.common.model.UserInfo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * <p>
@@ -16,7 +17,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 public interface UserInfoService extends IService<UserInfo> {
 
-    String login(UserInfo userInfo, HttpServletRequest request) throws JsonProcessingException;
+    String login(UserInfo userInfo, HttpServletRequest request) throws Exception;
 
-    String logout(HttpServletRequest request) throws JsonProcessingException;
+    String logout(HttpServletRequest request) throws Exception;
+
+    String register(UserInfo userInfo) throws Exception;
+
+    String insetTransationTest();
 }

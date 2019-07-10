@@ -1,4 +1,4 @@
-package com.example.springbootrao.listener;
+package com.example.springbootrao.configuration.listener;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;

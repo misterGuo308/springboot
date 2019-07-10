@@ -6,12 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@MapperScan("com.example.springbootrao.mapper")
 //@EnableScheduling//开始定时任务
-@ServletComponentScan//扫描监听拦截器等(@WebServlet, @WebFilter, and @WebListener)
+//@ServletComponentScan//扫描监听拦截器等(@WebServlet, @WebFilter, and @WebListener)
 @EnableRedisHttpSession(redisNamespace = "mySession2")
+@EnableTransactionManagement
 public class SpringbootRaoApplication {
 
     public static void main(String[] args) {

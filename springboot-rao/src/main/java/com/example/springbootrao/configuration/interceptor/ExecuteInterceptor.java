@@ -1,11 +1,12 @@
-package com.example.springbootrao.interceptor;
+package com.example.springbootrao.configuration.interceptor;
 
 import com.alibaba.druid.util.StringUtils;
 import com.example.springbootrao.common.constant.SysConstants;
 import com.example.springbootrao.common.model.UserInfo;
 import com.example.springbootrao.common.ret.RetCode;
 import com.example.springbootrao.common.ret.RetJson;
-import org.apache.catalina.User;
+import com.example.springbootrao.common.ret.RetMessage;
+import com.example.springbootrao.configuration.exception.ServerException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
@@ -35,20 +36,11 @@ public class ExecuteInterceptor implements HandlerInterceptor {
 
         if (!StringUtils.isEmpty(outoStr)) {
             session.invalidate();
-            byte[] bytes = RetJson.makeRsp(RetCode.UNAUTHORIZED, "用户未登录").getBytes("UTF-8");
-            ServletOutputStream outputStream = response.getOutputStream();
-            response.setHeader("content-type", "application/json;charset=UTF-8");
-            outputStream.write(bytes);
-            return false;
+            throw new  ServerException(RetCode.UNAUTHORIZED, RetMessage.MSG_UNKNOWN_USER);
         }
         UserInfo userInfo = (UserInfo) session.getAttribute(SysConstants.USER_INFO);
         if (userInfo == null) {
-
-            byte[] bytes = RetJson.makeRsp(RetCode.UNAUTHORIZED, "用户未登录").getBytes("UTF-8");
-            ServletOutputStream outputStream = response.getOutputStream();
-            response.setHeader("content-type", "application/json;charset=UTF-8");
-            outputStream.write(bytes);
-            return false;
+          throw new ServerException(RetCode.UNAUTHORIZED,RetMessage.UNAUTHORIZED);
         }
 
 

@@ -1,7 +1,8 @@
-package com.example.springbootrao.interceptor;
+package com.example.springbootrao.configuration.interceptor;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -16,11 +17,12 @@ public class RouterInterceptor implements WebMvcConfigurer {
         return new ExecuteInterceptor();
     }
 
+
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
         registry.addInterceptor(getExecuteInterceptor())
-                .excludePathPatterns("/userInfo/login")
+                .excludePathPatterns("/userInfo/login","/userInfo/register")
                 .addPathPatterns("/**");
     }
 
