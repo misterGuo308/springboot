@@ -23,5 +23,5 @@ public interface UserInfoService extends IService<UserInfo> {
 
     String register(UserInfo userInfo) throws Exception;
 
-    String insetTransationTest();
+
 }

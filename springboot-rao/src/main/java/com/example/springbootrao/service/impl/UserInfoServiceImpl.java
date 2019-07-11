@@ -79,20 +79,4 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         return userInfoMapper.insert(userInfo) > 0 ? RetJson.makeOKRsp() : RetJson.makeErrRsp();
     }
 
-    @Override
-    @Transactional
-    public String insetTransationTest() {
-        UserInfo userInfo = new UserInfo();
-        userInfo.setPassword("1234");
-        userInfo.setName("测试");
-        userInfo.setAccount("abc");
-        userInfoMapper.insert(userInfo);
-        int i = 1 / 0;
-        UserInfo userInfo2 = new UserInfo();
-        userInfo2.setPassword("12342");
-        userInfo2.setName("测试2");
-        userInfo2.setAccount("abc2");
-        userInfoMapper.transationTest(userInfo2);
-        return null;
-    }
 }
