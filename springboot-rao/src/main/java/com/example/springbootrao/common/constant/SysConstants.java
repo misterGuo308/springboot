@@ -1,7 +1,7 @@
 package com.example.springbootrao.common.constant;
 
 /**
- * @author Administrator
+ * @author 郭友
  * @date 2019/7/8 22:08
  */
 public class SysConstants {
