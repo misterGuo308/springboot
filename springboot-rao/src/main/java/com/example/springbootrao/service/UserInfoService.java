@@ -21,7 +21,12 @@ public interface UserInfoService extends IService<UserInfo> {
 
     String logout(HttpServletRequest request) throws Exception;
 
-    String register(UserInfo userInfo) throws Exception;
+    String addRegister(UserInfo userInfo) throws Exception;
 
-
+    /**
+     * 测试异常配置文件是否好用代码  注方法名前必须加上配置文件配置相应路径
+     * @param userInfo
+     * @throws Exception
+     */
+    void insertregister(UserInfo userInfo) throws Exception;
 }

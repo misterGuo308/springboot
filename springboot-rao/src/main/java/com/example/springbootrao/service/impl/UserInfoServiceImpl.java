@@ -68,7 +68,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     }
 
     @Override
-    public String register(UserInfo userInfo) throws Exception {
+    public String addRegister(UserInfo userInfo) throws Exception {
         QueryWrapper<UserInfo> wrapper = new QueryWrapper<UserInfo>();
         wrapper.eq("account", userInfo.getAccount());
         if (userInfoMapper.selectOne(wrapper) != null) {
@@ -77,6 +77,13 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         String md5 = MD5Utils.encrypt(userInfo.getPassword());
         userInfo.setPassword(md5);
         return userInfoMapper.insert(userInfo) > 0 ? RetJson.makeOKRsp() : RetJson.makeErrRsp();
+    }
+
+    @Override
+    public void insertregister(UserInfo userInfo) throws Exception {
+        userInfoMapper.insert(userInfo);
+        int i = 1 / 0;
+
     }
 
 }

@@ -58,7 +58,7 @@ public class UserInfoController {
     @PostMapping(value = "/register")
     public String register(@RequestBody UserInfo userInfo) throws Exception {
         Verify.registerVerify(userInfo.getName(),userInfo.getAccount(), userInfo.getPassword());
-        return userInfoService.register(userInfo);
+        return userInfoService.addRegister(userInfo);
     }
 
 }

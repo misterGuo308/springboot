@@ -19,3 +19,7 @@ boolean saveBatch(Collection<T> entityList);
  * @param batchSize  插入批次数量
  */
 boolean saveBatch(Collection<T> entityList, int batchSize);
+
+该问题已经2019年7月12号解决
+增加了全局异常文件的配置文件
+在调用mybitis plus 的方法时建议用自己定义的service调用
